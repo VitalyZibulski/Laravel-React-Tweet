@@ -13898,7 +13898,7 @@ module.exports = checkPropTypes;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
@@ -36164,7 +36164,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App__ = __webpack_require__(48);
 
 
 
@@ -57995,16 +57995,6 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 /***/ }),
 /* 48 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58028,10 +58018,12 @@ var App = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this.state = {};
+        _this.state = {
+            body: ''
 
-        //bind
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
+            //bind
+        };_this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.handleChange = _this.handleChange.bind(_this);
         return _this;
     }
 
@@ -58039,7 +58031,14 @@ var App = function (_Component) {
         key: 'handleSubmit',
         value: function handleSubmit(e) {
             e.preventDefault();
-            console.log('posted');
+            console.log(this.state.body);
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({
+                body: e.target.value
+            });
         }
     }, {
         key: 'render',
@@ -58071,6 +58070,7 @@ var App = function (_Component) {
                                         'div',
                                         { className: 'form-group' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+                                            onChange: this.handleChange,
                                             className: 'form-control',
                                             rows: '5',
                                             maxLength: '140',
@@ -58109,6 +58109,12 @@ var App = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (App);
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
