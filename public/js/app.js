@@ -58022,7 +58022,8 @@ var App = function (_Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            body: ''
+            body: '',
+            posts: []
 
             //bind
         };_this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -58033,14 +58034,22 @@ var App = function (_Component) {
     _createClass(App, [{
         key: 'handleSubmit',
         value: function handleSubmit(e) {
+            var _this2 = this;
+
             e.preventDefault();
             // this.postData();
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/posts', {
                 body: this.state.body
             }).then(function (response) {
-                return console.log(response);
+                _this2.setState({
+                    posts: [response.data]
+                });
             });
-            console.log(this.state.body);
+
+            //clear state body
+            this.setState({
+                body: ''
+            });
         }
     }, {
         key: 'postData',
@@ -58087,6 +58096,7 @@ var App = function (_Component) {
                                         { className: 'form-group' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
                                             onChange: this.handleChange,
+                                            value: this.state.body,
                                             className: 'form-control',
                                             rows: '5',
                                             maxLength: '140',
@@ -58107,12 +58117,18 @@ var App = function (_Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'card-header' },
-                                'App Component'
+                                'Recent tweets'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'card-body' },
-                                'I am an app component!'
+                                this.state.posts.map(function (post) {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { key: post.id },
+                                        post.body
+                                    );
+                                })
                             )
                         )
                     )

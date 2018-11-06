@@ -6,7 +6,8 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state= {
-            body:''
+            body:'',
+            posts:[]
         }
 
         //bind
@@ -19,8 +20,16 @@ class App extends Component {
         // this.postData();
         axios.post('/posts', {
             body:this.state.body
-        }).then(response => console.log(response));
-        console.log(this.state.body);
+        }).then(response => {
+            this.setState({
+                posts:[response.data]
+            })
+        });
+
+        //clear state body
+        this.setState({
+            body:''
+        })
     }
 
     postData() {
@@ -47,6 +56,7 @@ class App extends Component {
                                     <div className="form-group">
                                     <textarea
                                         onChange={this.handleChange}
+                                        value={this.state.body}
                                         className="form-control"
                                         rows="5"
                                         maxLength="140"
@@ -60,8 +70,10 @@ class App extends Component {
                     </div>
                         <div className="col-md-6">
                             <div className="card">
-                                <div className="card-header">App Component</div>
-                                <div className="card-body">I am an app component!</div>
+                                <div className="card-header">Recent tweets</div>
+                                <div className="card-body">
+                                    {this.state.posts.map(post => <div key={post.id}>{post.body}</div>)}
+                                </div>
                     </div>
             </div>
         </div>
