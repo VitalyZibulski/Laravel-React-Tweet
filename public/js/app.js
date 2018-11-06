@@ -58037,21 +58037,53 @@ var App = function (_Component) {
                 { className: "container" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "div",
-                    { className: "row" },
+                    { className: "row justify-content-center" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         "div",
-                        { className: "col-md-8 col-md-offset-2" },
+                        { className: "col-md-6" },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "div",
-                            { className: "panel panel-default" },
+                            { className: "card" },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 "div",
-                                { className: "panel-heading" },
+                                { className: "card-header" },
+                                "Tweet something..."
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "div",
+                                { className: "card-body" },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    "form",
+                                    { action: "" },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        "div",
+                                        { className: "form-group" },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", {
+                                            className: "form-control",
+                                            rows: "5",
+                                            maxlength: "140",
+                                            placeholder: "What's up ",
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "submit", value: "Post", className: "form-control" })
+                                )
+                            )
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-6" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "div",
+                            { className: "card" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "div",
+                                { className: "card-header" },
                                 "App Component"
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 "div",
-                                { className: "panel-body" },
+                                { className: "card-body" },
                                 "I am an app component!"
                             )
                         )
