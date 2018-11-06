@@ -58043,6 +58043,7 @@ var App = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/posts', {
                 body: this.state.body
             }).then(function (response) {
+                console.log(response);
                 _this2.setState({
                     posts: [].concat(_toConsumableArray(_this2.state.posts), [response.data])
                 });
