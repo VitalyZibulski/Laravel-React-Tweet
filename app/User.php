@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->id !== $user->id;
     }
 
-    public function isNotFollowing(User $user)
+    public function isFollowing(User $user)
     {
         return (bool) $this->following->where('id', $user->id)->count();
     }
@@ -64,7 +64,12 @@ class User extends Authenticatable
             return false;
         }
 
-        return !$this->isNotFollowing($user);
+        return !$this->isFollowing($user);
+    }
+
+    public function canUnfollow(User $user)
+    {
+        return $this->isFollowing($user);
     }
 
     public function following()
