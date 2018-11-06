@@ -22,7 +22,7 @@ class App extends Component {
             body:this.state.body
         }).then(response => {
             this.setState({
-                posts:[response.data]
+                posts:[...this.state.posts, response.data]
             })
         });
 
