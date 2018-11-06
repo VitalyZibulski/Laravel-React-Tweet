@@ -72,7 +72,12 @@ class App extends Component {
                             <div className="card">
                                 <div className="card-header">Recent tweets</div>
                                 <div className="card-body">
-                                    {this.state.posts.map(post => <div key={post.id}>{post.body}</div>)}
+                                    {this.state.posts.map(post =>
+                                        <div key={post.id}>
+                                            <a href="#"><b>{post.user.username}</b></a>
+                                            <p>{post.body}</p>
+                                        </div>
+                                    )}
                                 </div>
                     </div>
             </div>
