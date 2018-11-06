@@ -58062,14 +58062,16 @@ var App = function (_Component) {
         value: function componentDidMount() {
             var _this3 = this;
 
-            this.interval = setInterval(function () {
-                return _this3.getPosts();
-            }, 10000);
+            Echo.private('new-post').listen('PostCreated', function (e) {
+                // console.log(e);
+                _this3.setState({ posts: [e.post].concat(_toConsumableArray(_this3.state.posts)) });
+            });
+            // this.interval = setInterval(()=>this.getPosts(),10000)
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            clearInterval(this.interval);
+            // clearInterval(this.interval);
         }
     }, {
         key: 'handleSubmit',
