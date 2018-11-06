@@ -58040,11 +58040,11 @@ var App = function (_Component) {
         value: function getPosts() {
             var _this2 = this;
 
-            this.setState({ loading: true });
+            // this.setState({loading:true});
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/posts').then(function (response) {
                 return _this2.setState({
-                    posts: [].concat(_toConsumableArray(response.data.posts)),
-                    loading: false
+                    posts: [].concat(_toConsumableArray(response.data.posts))
+                    // loading: false
                 });
             });
         }
@@ -58054,9 +58054,23 @@ var App = function (_Component) {
             this.getPosts();
         }
     }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this3 = this;
+
+            this.interval = setInterval(function () {
+                return _this3.getPosts();
+            }, 10000);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            clearInterval(this.interval);
+        }
+    }, {
         key: 'handleSubmit',
         value: function handleSubmit(e) {
-            var _this3 = this;
+            var _this4 = this;
 
             e.preventDefault();
             // this.postData();
@@ -58064,8 +58078,8 @@ var App = function (_Component) {
                 body: this.state.body
             }).then(function (response) {
                 console.log(response);
-                _this3.setState({
-                    posts: [].concat(_toConsumableArray(_this3.state.posts), [response.data])
+                _this4.setState({
+                    posts: [].concat(_toConsumableArray(_this4.state.posts), [response.data])
                 });
             });
 
