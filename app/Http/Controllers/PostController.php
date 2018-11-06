@@ -14,7 +14,7 @@ class PostController extends Controller
         $posts = $allPosts->orderBy('created_at', 'desc')->take(10)->get();
 
         return response()->json([
-           'posts' => $posts;
+           'posts' => $posts
         ]);
     }
 
