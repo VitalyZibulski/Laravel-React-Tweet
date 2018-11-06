@@ -64,7 +64,7 @@ class User extends Authenticatable
             return false;
         }
 
-        return !$this->isFollowing($user);
+        return !$this->isNotFollowing($user);
     }
 
     public function following()
