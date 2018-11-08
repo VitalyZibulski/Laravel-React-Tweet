@@ -1,6 +1,6 @@
 Laravel project, use React
 
-###Install project
+Install project
 
 * php artisan preset react
 * npm install
